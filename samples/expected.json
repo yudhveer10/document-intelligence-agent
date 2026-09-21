@@ -1,0 +1,112 @@
+{
+  "01-clean-conventional.pdf": {
+    "vendorName": "Brightline Office Services",
+    "invoiceNumber": "BOS-2026-041",
+    "invoiceDate": "2026-08-14",
+    "currency": "USD",
+    "lineItems": [
+      {
+        "description": "Ergonomic keyboard",
+        "quantity": "3",
+        "unitPrice": "89.50",
+        "lineTotal": "268.50"
+      },
+      {
+        "description": "USB-C docking station",
+        "quantity": "2",
+        "unitPrice": "179.00",
+        "lineTotal": "358.00"
+      },
+      {
+        "description": "Monitor arm",
+        "quantity": "4",
+        "unitPrice": "64.25",
+        "lineTotal": "257.00"
+      }
+    ],
+    "grandTotal": "883.50"
+  },
+  "02-alternate-layout.pdf": {
+    "vendorName": "Harbor and Pine Logistics",
+    "invoiceNumber": "HP-7729",
+    "invoiceDate": "2026-07-03",
+    "currency": "USD",
+    "lineItems": [
+      {
+        "description": "Cold-chain crate rental",
+        "quantity": "12",
+        "unitPrice": "18.75",
+        "lineTotal": "225.00"
+      },
+      {
+        "description": "Priority regional freight",
+        "quantity": "1",
+        "unitPrice": "640.00",
+        "lineTotal": "640.00"
+      },
+      {
+        "description": "Fuel surcharge",
+        "quantity": "1",
+        "unitPrice": "76.35",
+        "lineTotal": "76.35"
+      }
+    ],
+    "grandTotal": "941.35"
+  },
+  "03-difficult-scan.pdf": {
+    "vendorName": "Cedar Ridge Maintenance",
+    "invoiceNumber": "CRM-518B",
+    "invoiceDate": "2026-06-22",
+    "currency": "USD",
+    "lineItems": [
+      {
+        "description": "Valve inspection",
+        "quantity": "2",
+        "unitPrice": "145.00",
+        "lineTotal": "290.00"
+      },
+      {
+        "description": "Seal replacement kit",
+        "quantity": "3",
+        "unitPrice": "38.40",
+        "lineTotal": "115.20"
+      },
+      {
+        "description": "Emergency callout",
+        "quantity": "1",
+        "unitPrice": "210.00",
+        "lineTotal": "210.00"
+      }
+    ],
+    "grandTotal": "615.20",
+    "expectedStatus": "needs_review",
+    "uncertainHint": "invoiceNumber"
+  },
+  "04-offset-invoice.xlsx": {
+    "vendorName": "Meridian Lab Systems",
+    "invoiceNumber": "MLS-X2407",
+    "invoiceDate": "2026-05-09",
+    "currency": "USD",
+    "lineItems": [
+      {
+        "description": "Optical calibration panel",
+        "quantity": "1",
+        "unitPrice": "480.00",
+        "lineTotal": "480.00"
+      },
+      {
+        "description": "Sterile sample trays",
+        "quantity": "6",
+        "unitPrice": "32.75",
+        "lineTotal": "196.50"
+      },
+      {
+        "description": "Temperature probe set",
+        "quantity": "2",
+        "unitPrice": "118.25",
+        "lineTotal": "236.50"
+      }
+    ],
+    "grandTotal": "913.00"
+  }
+}
