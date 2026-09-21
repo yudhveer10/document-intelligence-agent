@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light dark;
+  --canvas: #f4f6f5;
+  --surface: #fcfdfc;
+  --subtle: #f0f3f1;
+  --text: #17201c;
+  --muted: #59645f;
+  --border: #d9dfdc;
+  --border-strong: #aeb8b3;
+  font-family: Aptos, "Segoe UI", Arial, sans-serif;
+  font-synthesis: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --canvas: #111613;
+    --surface: #171d19;
+    --subtle: #1c2420;
+    --text: #edf3ef;
+    --muted: #a4b0a9;
+    --border: #303a35;
+    --border-strong: #4e5d55;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+}
+button,
+input {
+  font: inherit;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-xl border p-5 sm:p-6;
+    border-color: var(--border);
+    background: var(--surface);
+  }
+  .panel-title {
+    @apply mb-5 text-lg font-semibold;
+  }
+  .field {
+    @apply flex min-w-0 flex-col gap-2 text-sm font-medium;
+  }
+  .input {
+    @apply h-10 w-full rounded-lg border bg-transparent px-3 text-sm outline-none transition-colors;
+    border-color: var(--border-strong);
+    color: var(--text);
+  }
+  .input:focus {
+    @apply border-emerald-600 ring-2 ring-emerald-600/20;
+  }
+  .input-uncertain {
+    @apply border-amber-500 bg-amber-50 dark:bg-amber-950/25;
+  }
+  .button-primary {
+    @apply inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-emerald-700 px-4 text-sm font-semibold text-white transition-colors hover:bg-emerald-800 active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600;
+  }
+  .button-secondary {
+    @apply inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded-lg border px-4 text-sm font-semibold transition-colors hover:bg-[var(--subtle)] active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600;
+    border-color: var(--border-strong);
+    color: var(--text);
+  }
+  .icon-button {
+    @apply grid size-9 place-items-center rounded-lg hover:bg-[var(--subtle)] focus-visible:outline-2 focus-visible:outline-emerald-600;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
