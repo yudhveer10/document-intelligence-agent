@@ -19,7 +19,7 @@ const environmentSchema = z.object({
   SUPABASE_URL: optionalUrl,
   SUPABASE_SERVICE_ROLE_KEY: optionalString,
   GEMINI_API_KEY: optionalString,
-  GEMINI_MODEL: z.string().default("gemini-2.5-flash"),
+  GEMINI_MODEL: z.string().default("gemini-3.5-flash-lite"),
 });
 
 export type AppConfig = ReturnType<typeof loadConfig>;

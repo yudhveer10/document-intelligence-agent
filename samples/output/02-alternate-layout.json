@@ -1,0 +1,54 @@
+{
+  "sourceFile": "02-alternate-layout.pdf",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "result": {
+    "vendorName": "HARBOR + PINE LOGISTICS",
+    "invoiceNumber": "HP-7729",
+    "invoiceDate": "2026-07-03",
+    "currency": "USD",
+    "grandTotal": "941.35",
+    "status": "extracted",
+    "overallConfidence": 0.994,
+    "uncertainFields": [],
+    "validationIssues": [],
+    "sourceType": "digital_pdf",
+    "extractionMetadata": {
+      "pageCount": 1,
+      "extractedCharacterCount": 368,
+      "sourceQuality": 0.97,
+      "preprocessingWarnings": [],
+      "repairAttempted": false
+    },
+    "lineItems": [
+      {
+        "description": "Cold-chain crate rental",
+        "quantity": "12",
+        "unitPrice": "18.75",
+        "lineTotal": "225",
+        "confidence": 1,
+        "needsReview": false,
+        "position": 0
+      },
+      {
+        "description": "Priority regional freight",
+        "quantity": "1",
+        "unitPrice": "640",
+        "lineTotal": "640",
+        "confidence": 1,
+        "needsReview": false,
+        "position": 1
+      },
+      {
+        "description": "Fuel surcharge",
+        "quantity": "1",
+        "unitPrice": "76.35",
+        "lineTotal": "76.35",
+        "confidence": 1,
+        "needsReview": false,
+        "position": 2
+      }
+    ]
+  },
+  "fixtureVerification": "passed"
+}

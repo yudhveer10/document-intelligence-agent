@@ -52,26 +52,42 @@ export class ExtractionService {
     let raw = "";
     let parsed: ReturnType<typeof extractionResponseSchema.parse> | null = null;
     let errors: string[] = [];
-    for (let attempt = 0; attempt < 2; attempt += 1) {
-      try {
-        raw = await this.provider.extract({
-          document,
-          ...(attempt === 1 ? { previousOutput: raw, validationErrors: errors } : {}),
-        });
-        parsed = extractionResponseSchema.parse(parseModelJson(raw));
-        break;
-      } catch (error) {
-        errors = validationMessages(error);
-      }
-    }
     const metadata = {
       pageCount: document.pageCount,
       sheetCount: document.sheetCount,
       extractedCharacterCount: document.extractedCharacterCount,
       sourceQuality: document.sourceQuality,
       preprocessingWarnings: document.warnings,
-      repairAttempted: errors.length > 0,
+      repairAttempted: false,
     };
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      try {
+        raw = await this.provider.extract({
+          document,
+          ...(attempt === 1 ? { previousOutput: raw, validationErrors: errors } : {}),
+        });
+      } catch {
+        await this.repository.saveExtractionFailure(id, {
+          sourceType: document.sourceType,
+          reason: "The LLM provider could not process the document",
+          rawModelOutput: raw ? { text: raw } : null,
+          metadata,
+        });
+        await this.repository.setStatus(id, "failed");
+        throw new AppError(
+          502,
+          "llm_provider_error",
+          "The extraction provider could not process the document. Check its configuration or quota and retry.",
+        );
+      }
+      try {
+        parsed = extractionResponseSchema.parse(parseModelJson(raw));
+        break;
+      } catch (error) {
+        errors = validationMessages(error);
+        metadata.repairAttempted = true;
+      }
+    }
     if (!parsed) {
       return this.repository.saveExtractionFailure(id, {
         sourceType: document.sourceType,

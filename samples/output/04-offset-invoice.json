@@ -1,0 +1,54 @@
+{
+  "sourceFile": "04-offset-invoice.xlsx",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "result": {
+    "vendorName": "MERIDIAN LAB SYSTEMS",
+    "invoiceNumber": "MLS-X2407",
+    "invoiceDate": "2026-05-09",
+    "currency": "USD",
+    "grandTotal": "913",
+    "status": "extracted",
+    "overallConfidence": 0.988,
+    "uncertainFields": [],
+    "validationIssues": [],
+    "sourceType": "excel",
+    "extractionMetadata": {
+      "sheetCount": 1,
+      "extractedCharacterCount": 694,
+      "sourceQuality": 0.94,
+      "preprocessingWarnings": [],
+      "repairAttempted": false
+    },
+    "lineItems": [
+      {
+        "description": "Optical calibration panel",
+        "quantity": "1",
+        "unitPrice": "480",
+        "lineTotal": "480",
+        "confidence": 1,
+        "needsReview": false,
+        "position": 0
+      },
+      {
+        "description": "Sterile sample trays",
+        "quantity": "6",
+        "unitPrice": "32.75",
+        "lineTotal": "196.5",
+        "confidence": 1,
+        "needsReview": false,
+        "position": 1
+      },
+      {
+        "description": "Temperature probe set",
+        "quantity": "2",
+        "unitPrice": "118.25",
+        "lineTotal": "236.5",
+        "confidence": 1,
+        "needsReview": false,
+        "position": 2
+      }
+    ]
+  },
+  "fixtureVerification": "passed"
+}

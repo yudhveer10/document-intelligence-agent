@@ -1,0 +1,54 @@
+{
+  "sourceFile": "01-clean-conventional.pdf",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "result": {
+    "vendorName": "BRIGHTLINE OFFICE SERVICES",
+    "invoiceNumber": "BOS-2026-041",
+    "invoiceDate": "2026-08-14",
+    "currency": "USD",
+    "grandTotal": "883.5",
+    "status": "extracted",
+    "overallConfidence": 0.994,
+    "uncertainFields": [],
+    "validationIssues": [],
+    "sourceType": "digital_pdf",
+    "extractionMetadata": {
+      "pageCount": 1,
+      "extractedCharacterCount": 303,
+      "sourceQuality": 0.97,
+      "preprocessingWarnings": [],
+      "repairAttempted": false
+    },
+    "lineItems": [
+      {
+        "description": "Ergonomic keyboard",
+        "quantity": "3",
+        "unitPrice": "89.5",
+        "lineTotal": "268.5",
+        "confidence": 1,
+        "needsReview": false,
+        "position": 0
+      },
+      {
+        "description": "USB-C docking station",
+        "quantity": "2",
+        "unitPrice": "179",
+        "lineTotal": "358",
+        "confidence": 1,
+        "needsReview": false,
+        "position": 1
+      },
+      {
+        "description": "Monitor arm",
+        "quantity": "4",
+        "unitPrice": "64.25",
+        "lineTotal": "257",
+        "confidence": 1,
+        "needsReview": false,
+        "position": 2
+      }
+    ]
+  },
+  "fixtureVerification": "passed"
+}

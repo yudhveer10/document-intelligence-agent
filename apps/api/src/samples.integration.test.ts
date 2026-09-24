@@ -12,7 +12,7 @@ import { normalizeExtraction, validateInvoice } from "./validation.js";
 const samples = path.resolve(process.cwd(), "../../samples");
 dotenv.config({ path: path.resolve(process.cwd(), "../../.env") });
 const apiKey = process.env.GEMINI_API_KEY;
-const model = process.env.GEMINI_MODEL ?? "gemini-2.5-flash";
+const model = process.env.GEMINI_MODEL ?? "gemini-3.5-flash-lite";
 const sourceMime: Record<string, string> = {
   "01-clean-conventional.pdf": "application/pdf",
   "02-alternate-layout.pdf": "application/pdf",

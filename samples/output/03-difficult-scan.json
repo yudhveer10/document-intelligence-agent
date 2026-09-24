@@ -1,0 +1,65 @@
+{
+  "sourceFile": "03-difficult-scan.pdf",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "result": {
+    "vendorName": "CEDAR RIDGE MAINTENANCE",
+    "invoiceNumber": "CRM-518B",
+    "invoiceDate": "2026-06-22",
+    "currency": "USD",
+    "grandTotal": "615.2",
+    "status": "needs_review",
+    "overallConfidence": 0.8995,
+    "uncertainFields": [
+      "document"
+    ],
+    "validationIssues": [
+      {
+        "code": "scanned_source",
+        "field": "document",
+        "message": "Image-only source requires human review because visual noise can hide characters",
+        "severity": "warning"
+      }
+    ],
+    "sourceType": "scanned_pdf",
+    "extractionMetadata": {
+      "pageCount": 1,
+      "extractedCharacterCount": 0,
+      "sourceQuality": 0.58,
+      "preprocessingWarnings": [
+        "PDF has insufficient embedded text and was treated as an image-only scan"
+      ],
+      "repairAttempted": false
+    },
+    "lineItems": [
+      {
+        "description": "Valve inspection",
+        "quantity": "2",
+        "unitPrice": "145",
+        "lineTotal": "290",
+        "confidence": 0.99,
+        "needsReview": false,
+        "position": 0
+      },
+      {
+        "description": "Seal replacement kit",
+        "quantity": "3",
+        "unitPrice": "38.4",
+        "lineTotal": "115.2",
+        "confidence": 0.99,
+        "needsReview": false,
+        "position": 1
+      },
+      {
+        "description": "Emergency callout",
+        "quantity": "1",
+        "unitPrice": "210",
+        "lineTotal": "210",
+        "confidence": 0.99,
+        "needsReview": false,
+        "position": 2
+      }
+    ]
+  },
+  "fixtureVerification": "passed"
+}

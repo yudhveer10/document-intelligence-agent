@@ -29,7 +29,7 @@ const expected = {
     grandTotal: "883.50",
   },
   "02-alternate-layout.pdf": {
-    vendorName: "Harbor and Pine Logistics",
+    vendorName: "Harbor + Pine Logistics",
     invoiceNumber: "HP-7729",
     invoiceDate: "2026-07-03",
     currency: "USD",

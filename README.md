@@ -71,7 +71,7 @@ apps/
 packages/
   shared/              Strict Zod extraction/correction contracts and API types
 supabase/migrations/   PostgreSQL schema, indexes, triggers, atomic save function
-samples/               Three real PDFs, one real XLSX, expected.json test fixture
+samples/               Real source documents, expected fixture, verified live JSON outputs
 scripts/               Repeatable sample generation and migration verification SQL
 uploads/               Local private source files, ignored by Git
 ```
@@ -128,7 +128,7 @@ The migration was also applied to an isolated local PostgreSQL 18 cluster during
 | SUPABASE_URL              | Supabase project URL                                      |
 | SUPABASE_SERVICE_ROLE_KEY | Backend-only database key                                 |
 | GEMINI_API_KEY            | Backend-only Gemini key                                   |
-| GEMINI_MODEL              | Defaults to gemini-2.5-flash                              |
+| GEMINI_MODEL              | Defaults to gemini-3.5-flash-lite                         |
 | PORT                      | API port, default 4000                                    |
 | CORS_ORIGIN               | Local UI origin, default http://localhost:5173            |
 | UPLOAD_DIR                | Local private source directory, default ./uploads         |
@@ -144,6 +144,7 @@ No secret belongs in a VITE_ variable.
 | npm install              | Install all workspaces                                                                      |
 | npm run dev              | Start API and UI together                                                                   |
 | npm run samples          | Regenerate the four source documents and expected fixture                                   |
+| npm run samples:extract  | Run all samples through configured Gemini and write independently verified JSON outputs     |
 | npm test                 | Mocked, no-paid-call automated tests                                                        |
 | npm run test:integration | Optional real Gemini extraction against all four generated samples; requires GEMINI_API_KEY |
 | npm run lint             | ESLint                                                                                      |
@@ -162,6 +163,8 @@ No secret belongs in a VITE_ variable.
 | 04-offset-invoice.xlsx    | Offset header, merged cells, a non-tabular bill-to area, and line items below           |
 
 The scan is image-only; embedded-text classification returns scanned_pdf even if it is renamed to a clean-looking filename. The expected values in samples/expected.json let tests inspect fixture integrity without supplying those values to production extraction. Run npm run samples, then use the UI file picker or drop each file onto the upload area. The optional integration test makes real Gemini calls and may incur API usage.
+
+`samples/output/` contains four sanitized outputs produced with Gemini through the same `ExtractionService` used by uploaded documents. The `npm run samples:extract` command performs extraction first and only then compares the normalized result with the independent fixture; expected values are never included in the model prompt or production extraction path. The difficult scan remains `needs_review` because content-based preprocessing identifies it as image-only, even when all visible values are read correctly.
 
 ## Reliability and review policy
 

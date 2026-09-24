@@ -13,6 +13,7 @@
     "format:check": "prettier --check .",
     "lint": "eslint . --max-warnings 0",
     "samples": "node scripts/generate-samples.mjs",
+    "samples:extract": "npm run build -w @invoice/shared && npm run samples:extract -w @invoice/api",
     "test": "npm run build -w @invoice/shared && npm run test -w @invoice/shared && npm run test -w @invoice/api && npm run test -w @invoice/web",
     "test:integration": "npm run build -w @invoice/shared && npm run test:integration -w @invoice/api",
     "typecheck": "npm run build -w @invoice/shared && npm run typecheck -w @invoice/api && npm run typecheck -w @invoice/web"

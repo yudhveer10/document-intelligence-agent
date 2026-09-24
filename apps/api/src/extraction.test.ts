@@ -92,4 +92,20 @@ describe("ExtractionService repair flow", () => {
     expect(saved.status).toBe("needs_review");
     expect(saved.validationIssues[0]?.code).toBe("extraction_failed");
   });
+
+  it("does not treat provider failures as malformed model output", async () => {
+    const { directory, repository, record } = await setup();
+    let calls = 0;
+    const provider: LlmProvider = {
+      extract: async () => {
+        calls += 1;
+        throw new Error("provider billing details that must not reach the client");
+      },
+    };
+    await expect(
+      new ExtractionService(repository, provider, directory).extract(record.id),
+    ).rejects.toMatchObject({ statusCode: 502, code: "llm_provider_error" });
+    expect(calls).toBe(1);
+    expect((await repository.getById(record.id))?.status).toBe("failed");
+  });
 });
